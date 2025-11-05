@@ -1,0 +1,407 @@
+<!DOCTYPE HTML>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Codes - EN</title>
+    <style>
+        /* Reset and basic settings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #b8f9ff;
+            direction: ltr;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header and title */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #20949e 0%, #4cc4cf 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .sub-title {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* Form card */
+        .form-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        /* Form groups */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+        .form-control-index {
+            width: 99%;
+            padding: 100px 50px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 0.1rem;
+            background-color: #f8f9fa;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #545b62;
+            transform: translateY(-1px);
+        }
+
+        /* Button groups */
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-start;
+            margin-top: 30px;
+        }
+
+        /* Icons */
+        .icon {
+            margin-right: 8px;
+            font-size: 1.1em;
+        }
+
+        /* Messages and alerts */
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .alert-error {
+            background-color: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .alert-warning {
+            background-color: #fff3cd;
+            border-color: #ffc107;
+            color: #856404;
+        }
+
+        /* Required fields */
+        .required::after {
+            content: " *";
+            color: #dc3545;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .form-card {
+                padding: 25px;
+            }
+            
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+
+        #gh {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: orange;
+            font-size: 12px;
+            border-radius: 6px;
+            border-style: solid;
+            border-shadow: 2;
+            border-color: #a6721e;
+            border-width: 2px;
+        }
+
+        /* Additional styles for validation */
+        .form-control.valid {
+            border-color: #28a745;
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+        }
+
+        .form-control.invalid {
+            border-color: #dc3545;
+            box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+        }
+
+        .validation-message {
+            font-size: 0.875rem;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .validation-message.error {
+            color: #dc3545;
+        }
+
+        .validation-message.success {
+            color: #28a745;
+        }
+
+        .char-counter {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+
+        .char-counter.warning {
+            color: #ffc107;
+        }
+
+        .char-counter.error {
+            color: #dc3545;
+        }
+
+        #tak-a {
+            padding: 12px 15px;
+            background-color: limegreen;
+            color: green;
+            border-radius: 26px;
+            border-color: seagreen;
+            border-style: solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h2 class="main-title">Complete the form below to build your website! ✨️</h2>
+            <h5 class="sub-title">Please read the page rules:</h5>
+            <div id="gh">
+                - Your website will be built for free <br>
+                - All codes belong to you <br>
+                - Should not be more than one page <br>
+                - Should not exceed 600 lines <br>
+                - If the ID is already taken, it will be combined with numbers <br>
+                - Do not submit empty form and leave the page <br>
+                - CSS file is completely optional <br>
+                - Website content belongs to you, by building you accept
+            </div>
+        </header>
+
+        <form action="https://formspree.io/f/xwpwgvae" method="POST">
+            <header class="header">
+                <div class="form-group">
+                    <label class="form-label required" for="username">Enter your website address:</label>
+                    <input type="text" 
+                           id="username" 
+                           class="form-control"
+                           placeholder="nick name [show in this web]"
+                           maxlength="14">
+                    <span class="char-counter">0/14</span>
+                    <span class="validation-message"></span>
+                </div>
+            </header>
+
+            <header class="header">
+                <label class="form-label" for="index">Enter your main page HTML code:</label>
+                <input id="index" name="index.html file submitted:" class="form-control-index" placeholder="<!DOCTYPE HTML>.....">
+            </header>
+
+            <header class="header">
+                <label class="form-label" for="css">Styles.css: (if needed)</label>
+                <input id="css" name="Styles.css file submitted:" class="form-control-index" placeholder="ENTER YOUR STYLES.CSS FILE TEXTS HERE">
+            </header>
+
+            <header class="header">
+                <label class="form-label" for="other">Other page (if needed, must include page name)</label>
+                <input id="other" name="Other pages code mentioned:" class="form-control-index" placeholder="ENTER HERE BRO/SIS">
+            </header>
+
+            <header class="header">
+                <h5>If you really want your website to be built, click the button below</h5>
+                <button id="tak-a" type="submit">Submit to Server</button>
+            </header>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const usernameInput = document.getElementById('username');
+            const charCounter = usernameInput.parentElement.querySelector('.char-counter');
+            const validationMessage = usernameInput.parentElement.querySelector('.validation-message');
+
+            usernameInput.addEventListener('input', function(e) {
+                const value = e.target.value;
+                
+                charCounter.textContent = `${value.length}/14`;
+                
+                if (value.length > 10) {
+                    charCounter.className = 'char-counter warning';
+                } else if (value.length === 14) {
+                    charCounter.className = 'char-counter error';
+                } else {
+                    charCounter.className = 'char-counter';
+                }
+                
+                validateUsername(value);
+            });
+
+            usernameInput.addEventListener('blur', function(e) {
+                validateUsername(e.target.value);
+            });
+
+            document.querySelector('form').addEventListener('submit', function(e) {
+                if (!validateUsername(usernameInput.value)) {
+                    e.preventDefault();
+                    usernameInput.focus();
+                }
+            });
+
+            function validateUsername(value) {
+                usernameInput.classList.remove('valid', 'invalid');
+                validationMessage.className = 'validation-message';
+                
+                if (value.length < 4) {
+                    usernameInput.classList.add('invalid');
+                    validationMessage.className = 'validation-message error';
+                    validationMessage.textContent = 'Username must be at least 4 characters';
+                    return false;
+                }
+                
+                if (value.length > 14) {
+                    usernameInput.classList.add('invalid');
+                    validationMessage.className = 'validation-message error';
+                    validationMessage.textContent = 'Username cannot exceed 14 characters';
+                    return false;
+                }
+                
+                const englishRegex = /^[A-Za-z0-9_]+$/;
+                if (!englishRegex.test(value)) {
+                    usernameInput.classList.add('invalid');
+                    validationMessage.className = 'validation-message error';
+                    validationMessage.textContent = 'Only English letters, numbers and underscore allowed';
+                    return false;
+                }
+                
+                usernameInput.classList.add('valid');
+                validationMessage.className = 'validation-message success';
+                validationMessage.textContent = 'Username is valid';
+                return true;
+            }
+
+            usernameInput.addEventListener('keypress', function(e) {
+                const char = String.fromCharCode(e.keyCode || e.which);
+                const englishRegex = /^[A-Za-z0-9_]$/;
+                
+                if (!englishRegex.test(char)) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+
+            usernameInput.addEventListener('paste', function(e) {
+                const pastedData = e.clipboardData.getData('text');
+                const englishRegex = /^[A-Za-z0-9_]+$/;
+                
+                if (!englishRegex.test(pastedData)) {
+                    e.preventDefault();
+                    validationMessage.className = 'validation-message error';
+                    validationMessage.textContent = 'Pasting non-English characters is not allowed';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
