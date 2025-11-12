@@ -1,0 +1,404 @@
+<!DOCTYPE HTML>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Code Showcase</title>
+    <style>
+    /* Reset and Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background-attachment: fixed;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Header Styles */
+    .header {
+        text-align: center;
+        margin-bottom: 40px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .header h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .header p {
+        color: #666;
+        font-size: 1.2rem;
+    }
+
+    /* Code Section Styles */
+    .code-section {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        margin-bottom: 30px;
+        padding: 25px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border: 3px solid;
+        transition: transform 0.3s ease;
+    }
+
+    .code-section:hover {
+        transform: translateY(-5px);
+    }
+
+    .html-section { border-color: #e34c26; }
+    .css-section { border-color: #264de4; }
+    .js-section { border-color: #f7df1e; }
+    .all-codes-section { border-color: #000; }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 3px solid;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .html-section .section-header { border-color: #e34c26; color: #e34c26; }
+    .css-section .section-header { border-color: #264de4; color: #264de4; }
+    .js-section .section-header { border-color: #f7df1e; color: #f7df1e; }
+    .all-codes-section .section-header { border-color: #000; color: #000; }
+
+    .section-header::before {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        border-radius: 50%;
+    }
+
+    .html-section .section-header::before { background: #e34c26; }
+    .css-section .section-header::before { background: #264de4; }
+    .js-section .section-header::before { background: #f7df1e; }
+    .all-codes-section .section-header::before { background: #000; }
+
+    /* Code Display */
+    .code-display {
+        background: #1e1e1e;
+        border-radius: 10px;
+        padding: 20px;
+        overflow-x: auto;
+        border: 2px solid #333;
+    }
+
+    .code-display code {
+        color: #d4d4d4;
+        font-family: 'Courier New', monospace;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    /* Magic Button */
+    .magic-btn {
+        position: relative;
+        padding: 20px 40px;
+        font-size: 1.3rem;
+        background: linear-gradient(45deg, #007bff, #0056b3);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+        display: block;
+        margin: 40px auto;
+        text-align: center;
+        min-width: 300px;
+    }
+
+    .magic-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(0, 123, 255, 0.4);
+    }
+
+    .magic-btn.active {
+        background: linear-gradient(45deg, #0056b3, #003d82);
+        animation: pulse 1.5s infinite;
+    }
+
+    .wave {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    .magic-btn.active .wave {
+        animation: wave 1s ease-out;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    @keyframes wave {
+        0% { transform: scale(0); opacity: 1; }
+        100% { transform: scale(2); opacity: 0; }
+    }
+
+    .btn-text {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        body {
+            padding: 10px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+        }
+
+        .header p {
+            font-size: 1rem;
+        }
+
+        .code-section {
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section-header {
+            font-size: 1.3rem;
+        }
+
+        .magic-btn {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            min-width: 250px;
+        }
+
+        .code-display {
+            padding: 15px;
+        }
+
+        .code-display code {
+            font-size: 12px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .header h1 {
+            font-size: 1.7rem;
+        }
+
+        .section-header {
+            font-size: 1.1rem;
+        }
+
+        .magic-btn {
+            padding: 12px 25px;
+            font-size: 1rem;
+            min-width: 200px;
+        }
+    }
+
+    /* Syntax Highlighting */
+    .html-tag { color: #569cd6; }
+    .html-attr { color: #9cdcfe; }
+    .html-value { color: #ce9178; }
+    .css-selector { color: #d7ba7d; }
+    .css-property { color: #9cdcfe; }
+    .css-value { color: #ce9178; }
+    .js-keyword { color: #569cd6; }
+    .js-function { color: #dcdcaa; }
+    .js-string { color: #ce9178; }
+    .js-comment { color: #6a9955; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌐 Web Development Code Showcase</h1>
+            <p>Explore the complete source code of this responsive website</p>
+        </div>
+
+        <!-- HTML Section -->
+        <div class="code-section html-section">
+            <div class="section-header">index.html</div>
+            <div class="code-display">
+                <code>
+<span class="html-tag">&lt;!DOCTYPE HTML&gt;</span>
+<span class="html-tag">&lt;html</span> <span class="html-attr">lang=</span><span class="html-value">"en"</span> <span class="html-attr">dir=</span><span class="html-value">"ltr"</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;head&gt;</span>
+    <span class="html-tag">&lt;meta</span> <span class="html-attr">charset=</span><span class="html-value">"UTF-8"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;meta</span> <span class="html-attr">name=</span><span class="html-value">"viewport"</span> <span class="html-attr">content=</span><span class="html-value">"width=device-width, initial-scale=1.0"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;title&gt;</span>Web Code Showcase<span class="html-tag">&lt;/title&gt;</span>
+    <span class="html-tag">&lt;link</span> <span class="html-attr">rel=</span><span class="html-value">"stylesheet"</span> <span class="html-attr">href=</span><span class="html-value">"style.css"</span><span class="html-tag">&gt;</span>
+<span class="html-tag">&lt;/head&gt;</span>
+<span class="html-tag">&lt;body&gt;</span>
+    <span class="html-tag">&lt;div</span> <span class="html-attr">class=</span><span class="html-value">"container"</span><span class="html-tag">&gt;</span>
+        <span class="html-tag">&lt;header&gt;</span>
+            <span class="html-tag">&lt;h1&gt;</span>Welcome to My Website<span class="html-tag">&lt;/h1&gt;</span>
+        <span class="html-tag">&lt;/header&gt;</span>
+        <span class="html-tag">&lt;main&gt;</span>
+            <span class="html-tag">&lt;p&gt;</span>This is a responsive web page<span class="html-tag">&lt;/p&gt;</span>
+        <span class="html-tag">&lt;/main&gt;</span>
+    <span class="html-tag">&lt;/div&gt;</span>
+    <span class="html-tag">&lt;script</span> <span class="html-attr">src=</span><span class="html-value">"script.js"</span><span class="html-tag">&gt;&lt;/script&gt;</span>
+<span class="html-tag">&lt;/body&gt;</span>
+<span class="html-tag">&lt;/html&gt;</span>
+                </code>
+            </div>
+        </div>
+
+        <!-- CSS Section -->
+        <div class="code-section css-section">
+            <div class="section-header">style.css</div>
+            <div class="code-display">
+                <code>
+<span class="css-comment">/* Reset and Base Styles */</span>
+<span class="css-selector">*</span> {
+    <span class="css-property">margin</span>: <span class="css-value">0</span>;
+    <span class="css-property">padding</span>: <span class="css-value">0</span>;
+    <span class="css-property">box-sizing</span>: <span class="css-value">border-box</span>;
+}
+
+<span class="css-selector">body</span> {
+    <span class="css-property">min-height</span>: <span class="css-value">100vh</span>;
+    <span class="css-property">font-family</span>: <span class="css-value">'Segoe UI', sans-serif</span>;
+    <span class="css-property">background</span>: <span class="css-value">linear-gradient(135deg, #667eea, #764ba2)</span>;
+    <span class="css-property">color</span>: <span class="css-value">#333</span>;
+    <span class="css-property">line-height</span>: <span class="css-value">1.6</span>;
+}
+
+<span class="css-selector">.container</span> {
+    <span class="css-property">max-width</span>: <span class="css-value">1200px</span>;
+    <span class="css-property">margin</span>: <span class="css-value">0 auto</span>;
+    <span class="css-property">padding</span>: <span class="css-value">20px</span>;
+}
+                </code>
+            </div>
+        </div>
+
+        <!-- JavaScript Section -->
+        <div class="code-section js-section">
+            <div class="section-header">script.js</div>
+            <div class="code-display">
+                <code>
+<span class="js-comment">// Main JavaScript File</span>
+<span class="js-keyword">class</span> <span class="js-function">Website</span> {
+    <span class="js-function">constructor</span>() {
+        <span class="js-keyword">this</span>.<span class="js-property">init</span>();
+    }
+
+    <span class="js-function">init</span>() {
+        <span class="js-keyword">this</span>.<span class="js-property">setupEventListeners</span>();
+        <span class="js-keyword">this</span>.<span class="js-property">animateElements</span>();
+    }
+
+    <span class="js-function">setupEventListeners</span>() {
+        <span class="js-variable">console</span>.<span class="js-function">log</span>(<span class="js-string">'Website initialized!'</span>);
+    }
+
+    <span class="js-function">animateElements</span>() {
+        <span class="js-comment">// Animation logic here</span>
+    }
+}
+
+<span class="js-comment">// Initialize website when DOM is loaded</span>
+<span class="js-variable">document</span>.<span class="js-function">addEventListener</span>(<span class="js-string">'DOMContentLoaded'</span>, () => {
+    <span class="js-keyword">new</span> <span class="js-function">Website</span>();
+});
+                </code>
+            </div>
+        </div>
+
+        <!-- All Codes Section -->
+        <div class="code-section all-codes-section">
+            <div class="section-header">All Codes (Complete Source)</div>
+            <div class="code-display">
+                <code>
+<span class="js-comment">// Complete HTML, CSS, and JavaScript code</span>
+<span class="js-comment">// This file contains the entire source code</span>
+<span class="js-comment">// of this responsive web application</span>
+
+<span class="html-tag">&lt;!-- HTML Structure --&gt;</span>
+<span class="html-tag">&lt;div</span> <span class="html-attr">class=</span><span class="html-value">"responsive-container"</span><span class="html-tag">&gt;</span>
+    <span class="html-tag">&lt;header&gt;</span>...<span class="html-tag">&lt;/header&gt;</span>
+    <span class="html-tag">&lt;main&gt;</span>...<span class="html-tag">&lt;/main&gt;</span>
+    <span class="html-tag">&lt;footer&gt;</span>...<span class="html-tag">&lt;/footer&gt;</span>
+<span class="html-tag">&lt;/div&gt;</span>
+
+<span class="css-comment">/* CSS Styles */</span>
+<span class="css-selector">.responsive-container</span> {
+    <span class="css-property">display</span>: <span class="css-value">flex</span>;
+    <span class="css-property">flex-direction</span>: <span class="css-value">column</span>;
+    <span class="css-property">min-height</span>: <span class="css-value">100vh</span>;
+}
+
+<span class="js-comment">// JavaScript Functionality</span>
+<span class="js-variable">console</span>.<span class="js-function">log</span>(<span class="js-string">'All codes loaded successfully!'</span>);
+                </code>
+            </div>
+        </div>
+
+        <!-- Magic Button -->
+        <button class="magic-btn" id="magicButton">
+            <span class="btn-text">Who created this web and why? [click to View]</span>
+            <div class="wave"></div>
+        </button>
+    </div>
+
+    <script>
+    const magicButton = document.getElementById('magicButton');
+    let isActive = false;
+
+    magicButton.addEventListener('click', function() {
+        isActive = !isActive;
+        
+        if (isActive) {
+            this.classList.add('active');
+            this.querySelector('.btn-text').textContent = 'This Website created by ItsSadegh786MC! This webpage teaches simple web coding formats with responsive design!';
+            
+            if (navigator.vibrate) {
+                navigator.vibrate(100);
+            }
+        } else {
+            this.classList.remove('active');
+            this.querySelector('.btn-text').textContent = 'Who created this web and why? [click to View]';
+        }
+    });
+
+    // Add responsive behavior
+    window.addEventListener('resize', function() {
+        console.log('Window resized to: ' + window.innerWidth + 'px');
+    });
+    </script>
+</body>
+</html>
